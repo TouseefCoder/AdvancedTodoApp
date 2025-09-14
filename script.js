@@ -25,6 +25,10 @@ function displayCards(statusFilter = "") {
   });
   CardContainer.innerHTML = "";
 
+   if (filterCards.length === 0) {
+    CardContainer.innerHTML = `<h1 style="text-align: center; margin-top: 50px">Add New Tasks</h1>`;
+  }
+
   filterCards.forEach((card) => {
     let childCards = cards.filter(
       (child) => child.parentId === String(card.id)
@@ -427,3 +431,4 @@ updateTime();
 // setInterval(updateTime, 1000);
 
 // todayDate.getFullYear();
+
