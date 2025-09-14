@@ -1,0 +1,743 @@
+/*
+arrows rotate.
+clock.
+file-excel.
+
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #d8d8d8;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 767px;
+  height: calc(90vh);
+  margin: auto;
+  background-color: #f6f6f6;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.wrapper__profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile__image {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7px;
+}
+
+.profile__heading {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.profile__heading h1 {
+  font-size: 22.5px;
+}
+
+.profile__p p {
+  font-size: 10.5px;
+  color: #777;
+}
+
+.profile__img {
+  width: 47px;
+  height: 47px;
+  overflow: hidden;
+  border: 1px solid green;
+  border-radius: 50%;
+}
+
+.profile__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile__leftimg {
+  height: 28px;
+  width: 28px;
+}
+
+.profile__leftimg img {
+  width: 100%;
+  height: 100%;
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  text-align: center;
+  align-content: center;
+  background-color: hsl(0deg 0% 92.16%);
+}
+
+.fa-border-all {
+  font-size: 25px;
+}
+
+.menu-cards {
+  margin: 25px 0;
+}
+
+.menu-cards__icon {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+}
+
+.menu-cards__cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.menu-cards__card {
+  border-radius: 20px;
+  width: 47%;
+  cursor: pointer;
+}
+
+.menu-cards__card.ongoing {
+  background-color: rgb(86 148 242);
+}
+
+.menu-cards__icon.arrow {
+  background-color: rgb(77 133 218);
+}
+
+.menu-cards__card.completed {
+  background-color: #53c2c5;
+}
+
+.menu-cards__icon.check {
+  background-color: #4bafb1;
+}
+
+.menu-cards__card.canceled {
+  background-color: #f26e56;
+}
+
+.menu-cards__icon.excel {
+  background-color: #da634d;
+}
+
+.menu-cards__icon.clock {
+  background-color: rgb(229 175 64);
+}
+
+.menu-cards__icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 12px;
+  gap: 5px;
+}
+
+.menu-cards__card.inprocess {
+  background-color: rgb(254 195 71);
+}
+
+.menu-cards__icon i {
+  font-size: 21px;
+}
+
+.menu-cards__content h3 {
+  font-size: 13.5px;
+}
+
+.menu-cards__content p {
+  font-size: 11px;
+  color: #777;
+}
+
+.main-details__card,
+.childCardDetails__main {
+  border: 1.5px solid black;
+  border-radius: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.main-details__card:hover,
+.childCardDetails__main:hover {
+  transform: translateY(-1px);
+  background-color: #ecebeb;
+}
+.main-details__card::after,
+.childCardDetails__main::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 7px;
+  background-color: black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.main-details__cards {
+  height: 100vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  display: block;
+}
+
+#mainDetailsCard {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 100vh;
+}
+#childCardDetails {
+  border: 1px solid red;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 100vh;
+}
+
+.CardDetail {
+  height: 200px;
+  width: 450px;
+  border: 1.5px solid black;
+  border-radius: 15px;
+  padding: 15px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.CardDetail:hover {
+  transform: translateY(-1px);
+  height: 205px;
+  width: 455px;
+}
+
+.CardDetail::after {
+  content: "";
+  background-color: black;
+  position: absolute;
+  width: 90%;
+  height: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -7px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.cross__icon {
+  font-size: 23px;
+  color: #b85645;
+  float: inline-end;
+  cursor: pointer;
+}
+
+.cross__icon:hover {
+  color: #d8634e;
+}
+
+.CardDetail__sub-title,
+.CardDetail__status {
+  margin-top: 5px;
+}
+#changeStatus {
+  margin-top: 5px;
+  width: 150px;
+  font-size: 15px;
+}
+
+@media (max-height: 700px) {
+  .main-details__cards,
+  #mainDetailsCard,
+  #childCardDetails {
+    max-height: 35vh;
+  }
+}
+
+/* When max-height is 800px or less but more than 500px */
+@media (max-height: 1100px) and (min-height: 700px) {
+  .main-details__cards,
+  #mainDetailsCard,
+  #childCardDetails {
+    max-height: 50vh;
+  }
+}
+
+.main-details__card-progressbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.main-details__card-progressbar .status {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 5px;
+  border-radius: 5px;
+  background-color: #ededed;
+}
+
+.main-details__card-progressbar .status:hover {
+  background-color: #4bafb1;
+}
+
+.circle__progressbar {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: conic-gradient(#4bafb1 180deg, #ededed 0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress__value {
+  position: relative;
+}
+
+.circle__progressbar::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.main-details__card-content h2 {
+  font-size: 15px;
+}
+
+.fa-circle-check {
+  margin-right: 5px;
+}
+
+.main-details__card-content p {
+  font-size: 10px;
+  color: #777;
+}
+
+.main-detail__tasks p {
+  font-size: 12px;
+  color: black;
+}
+
+.nav-footer {
+  position: fixed;
+  width: 100%;
+  height: 10vh;
+  max-width: 767px;
+  background-color: white;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  border-top: 2px solid black;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-footer i {
+  color: #f8b8ac;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.nav-footer .active {
+  color: #f26e56;
+}
+
+.fa-plus {
+  background-color: #f26e56;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.hidden {
+  display: none;
+}
+
+.back__menu {
+  width: 45px;
+  height: 45px;
+  background-color: #ebebeb;
+  text-align: center;
+  align-content: center;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.image {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 23px;
+  font-weight: 600;
+}
+.image p {
+  font-size: 12px;
+  font-weight: normal;
+  color: #777777;
+  margin-top: 20px;
+}
+
+.input,
+.dropDown {
+  width: 100%;
+  height: 55px;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+#dropDownId {
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid black;
+  border-radius: 10px;
+  padding: 0 10px;
+  outline: none;
+  font-size: 15px;
+}
+
+.input::after,
+.dropDown::after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 90%;
+  left: 50%;
+  bottom: -5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transform: translateX(-50%);
+  background-color: black;
+}
+
+.input input {
+  width: 100%;
+  height: 100%;
+  padding: 0 15px;
+  font-size: 15px;
+  border: 1.5px solid black;
+  border-radius: 10px;
+  outline: none;
+}
+
+.agrement {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.agrement input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.agrement span {
+  color: #777777;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 12px;
+}
+.agrement span:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.button {
+  width: 100%;
+  height: 55px;
+  margin: 30px auto;
+}
+.button input[type="submit"] {
+  width: 100%;
+  height: 55px;
+  background-color: #f26e56;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.button input[type="button"]:hover {
+  background-color: #d8634e;
+}
+.or {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #777777;
+}
+
+.or::before,
+.or::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background-color: #777777;
+  margin: 0 10px;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-bottom: 70px;
+}
+.social-links .icons {
+  width: 100px;
+  height: 55px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  transition: all 0.1s;
+}
+
+.social-links .icons:hover {
+  background-color: #d8d8d8;
+  width: 98px;
+  height: 52px;
+}
+
+.social-links .icons img {
+  width: 100%;
+  height: 100%;
+  max-width: 25px;
+  max-height: 25px;
+}
+
+.footer {
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.footer a {
+  color: #f26e56;
+}
+.footer a:hover {
+  text-decoration: none;
+}
+
+.calender__nav-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.back__menu {
+  width: 45px;
+  height: 45px;
+  background-color: #ebebeb;
+  text-align: center;
+  align-content: center;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.calender__day {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.calender_date {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.calender_date.active {
+  background-color: #f26e56;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.calender__span-date {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.calender__span-day {
+  font-size: 10px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.calender__main-info {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.calender__info {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.calender__card-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: #777;
+  font-size: 12px;
+  width: 20%;
+}
+
+.calender__card {
+  border: 1.5px solid black;
+  border-radius: 15px;
+  padding: 15px 22px;
+  position: relative;
+  width: 80%;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.calender__card:hover {
+  transform: translateY(-1px);
+  background-color: #ecebeb;
+}
+
+.calender__card::after {
+  content: "";
+  position: absolute;
+  height: 6px;
+  width: 90%;
+  background-color: black;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -6px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.calender__card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.eclips-icon i {
+  font-size: 18px;
+}
+
+.calender__meeting-timings {
+  font-size: 10px;
+  color: #777;
+  margin-top: 5px;
+}
+
+.calender__web-optimize {
+  font-size: 10px;
+  font-weight: 600;
+  background-color: #ebebeb;
+  margin-top: 5px;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.calender__card-end {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.calender__card-imgs {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.calender__card-imgs > .imgs {
+  width: 100px;
+  height: 100px;
+  max-width: 30px;
+  max-height: 30px;
+  margin-left: -5px;
+}
+
+.calender__card-imgs > .imgs:first-child {
+  margin-left: 0;
+}
+
+.calender__card-imgs > .imgs img {
+  width: 100%;
+  height: 100%;
+  border: 0.5px solid white;
+  border-radius: 50%;
+}
+
+.calender__subtasks {
+  width: 80%;
+}
+
+.calender__subtasks input {
+  font-size: 12px;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.calender__card-title .fa-plus {
+  background-color: black;
+  color: white;
+  padding: 7px;
+  border-radius: 50%;
+}

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Todo list</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="wrapper" id="div1" style="overflow: hidden">
+      <div class="wrapper__profile">
+        <div class="profile__image">
+          <div class="profile__img">
+            <img src="2nd profile.avif" alt="" />
+          </div>
+          <div class="profile__content">
+            <div class="profile__heading">
+              <h1>Hi, Bruce👋</h1>
+            </div>
+            <div class="profile__p">
+              <p>Your daily adventure statrs now</p>
+            </div>
+          </div>
+        </div>
+        <div class="profile__menu">
+          <div class="icon" id="menu__icon">
+            <i class="fa-solid fa-border-all"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-cards" id="menu-cards" style="display: block">
+        <div class="menu-cards__cards">
+          <div class="menu-cards__card ongoing" id="ongoing">
+            <div class="menu-cards__icons">
+              <div class="menu-cards__icon arrow">
+                <i class="fa-solid fa-arrows-rotate"></i>
+              </div>
+              <div class="menu-cards__content">
+                <h3>On going</h3>
+                <p id="ongoing-tasks"></p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-cards__card inprocess" id="inprocess">
+            <div class="menu-cards__icons">
+              <div class="menu-cards__icon clock">
+                <i class="fa-regular fa-clock"></i>
+              </div>
+              <div class="menu-cards__content">
+                <h3>In Process</h3>
+                <p id="inprocess-tasks"></p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-cards__card completed" id="completed">
+            <div class="menu-cards__icons">
+              <div class="menu-cards__icon check">
+                <i class="fa-solid fa-file-circle-check"></i>
+              </div>
+              <div class="menu-cards__content">
+                <h3>Completed</h3>
+                <p id="completed-tasks">42 Tasks</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-cards__card canceled" id="canceled">
+            <div class="menu-cards__icons">
+              <div class="menu-cards__icon excel">
+                <i class="fa-regular fa-file-excel"></i>
+              </div>
+              <div class="menu-cards__content">
+                <h3>Canceled</h3>
+                <p id="cancelled-tasks"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-details">
+        <h3 style="margin-bottom: 15px; font-weight: 600">Recent Task</h3>
+        <div
+          id="main-details__cards"
+          class="main-details__cards"
+          style="display: block"
+        ></div>
+        <div id="mainDetailsCard">
+          <div class="CardDetail">
+            <div class="cross__icon" id="cross__icon">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="CardDetail__title">
+              <span>Title:</span>
+              <h3 class="title_name" id="title_name"></h3>
+            </div>
+            <div class="CardDetail__sub-title">
+              <span>Sub Title:</span>
+              <h4 class="sub-title_name" id="sub-title_name"></h4>
+            </div>
+
+            <div class="CardDetail__status">
+              <span>Status Change:</span><br />
+              <select name="" id="changeStatus">
+                <option value="Ongoing">OnGoing</option>
+                <option value="Inprocess">In Process</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper" id="div2" style="display: none">
+      <div class="back__menu" id="form_back">
+        <i class="fa-solid fa-chevron-left"></i>
+      </div>
+      <div class="image">
+        <span>Create Account👋</span>
+        <p>
+          Please register on our Streamline, where you can continue using our
+          service
+        </p>
+      </div>
+      <form action="" id="form">
+        <div class="form__input">
+          <div class="input">
+            <input type="text" name="name" placeholder="Bruce Wayne" required />
+          </div>
+          <div class="input">
+            <input
+              type="text"
+              name="descript"
+              placeholder="Description"
+              required
+            />
+          </div>
+          <div class="dropDown">
+            <select name="dropDownId" id="dropDownId">
+              <option value="">Select an Id</option>
+            </select>
+          </div>
+        </div>
+        <div class="agrement">
+          <input type="checkbox" name="" id="" required /><span
+            >I agree to privacy policy & terms</span
+          >
+        </div>
+        <div class="button">
+          <input type="submit" value="Continue" />
+        </div>
+      </form>
+      <div class="or">Or</div>
+      <div class="social-links">
+        <div class="icons">
+          <img src="fb.svg" width="" alt="" />
+        </div>
+        <div class="icons">
+          <img src="apple.svg" width="" alt="" />
+        </div>
+        <div class="icons">
+          <img src="goggle.svg" width="" alt="" />
+        </div>
+      </div>
+      <div class="footer">
+        <span>Already have an account?</span> <a href="">Sign in instead</a>
+      </div>
+    </div>
+
+    <div class="wrapper" id="div3" style="display: none">
+      <div class="calender__nav-icons">
+        <div class="back__menu" id="form_back">
+          <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="back__menu" id="form_back">
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+      </div>
+      <div class="calender__today-date">
+        <h5 id="calender__current-date">Wednesday, 17 January 2024</h5>
+      </div>
+      <div class="calender__day">
+        <div class="calender_date">
+          <span class="calender__span-day">Mon</span>
+          <span class="calender__span-date">14</span>
+        </div>
+        <div class="calender_date">
+          <span class="calender__span-day">Tue</span>
+          <span class="calender__span-date">15</span>
+        </div>
+        <div class="calender_date">
+          <span class="calender__span-day">Wed</span>
+          <span class="calender__span-date">16</span>
+        </div>
+        <div class="calender_date active">
+          <span class="calender__span-day">Thu</span>
+          <span class="calender__span-date">17</span>
+        </div>
+        <div class="calender_date">
+          <span class="calender__span-day">Fri</span>
+          <span class="calender__span-date">18</span>
+        </div>
+        <div class="calender_date">
+          <span class="calender__span-day">Sat</span>
+          <span class="calender__span-date">19</span>
+        </div>
+        <div class="calender_date">
+          <span class="calender__span-day">Sun</span>
+          <span class="calender__span-date">20</span>
+        </div>
+      </div>
+      <div class="calender__main-info">
+        <div class="calender__info">
+          <div class="calender__card-date">
+            <div class="span">09 am</div>
+            <div class="span">10 am</div>
+          </div>
+          <div class="calender__card">
+            <div class="calender__card-title">
+              <h5>Optimize server response time</h5>
+              <div class="eclips-icon">
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+            <div class="calender__meeting-timings">
+              <span>09.00 am - 10.15 am</span>
+            </div>
+          </div>
+        </div>
+        <div class="calender__info">
+          <div class="calender__card-date">
+            <div class="span">11 am</div>
+            <div class="span">12 pm</div>
+            <div class="span">01 pm</div>
+          </div>
+          <div class="calender__card">
+            <div class="calender__card-title">
+              <h5>
+                Team Meeting <br />
+                (Designer and Developer)
+              </h5>
+              <div class="eclips-icon">
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+            <div class="calender__meeting-timings">
+              <span>10.45 am - 11.45 am</span>
+            </div>
+            <div class="calender__web-optimize">
+              <span>Optimization Website for Rune.io</span>
+            </div>
+            <div class="calender__card-end">
+              <div class="calender__card-imgs">
+                <div class="imgs">
+                  <img src="first.jpeg" alt="" />
+                </div>
+                <div class="imgs">
+                  <img src="second.jpeg" alt="" />
+                </div>
+                <div class="imgs">
+                  <img src="third.jpeg" alt="" />
+                </div>
+              </div>
+              <div class="right-icon">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="calender__info">
+          <div class="calender__card-date">
+            <div class="span">02 pm</div>
+          </div>
+          <div class="calender__card">
+            <div class="calender__card-title">
+              <div class="calender__subtasks">
+                <input type="text" name="" placeholder="Add new subtask" />
+              </div>
+              <div class="plus-icon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="calender__info">
+          <div class="calender__card-date">
+            <div class="span">03 am</div>
+            <div class="span">04 am</div>
+          </div>
+          <div class="calender__card">
+            <div class="calender__card-title">
+              <h5>Optimize Homepage Design</h5>
+              <div class="eclips-icon">
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+            <div class="calender__meeting-timings">
+              <span>03.00 pm - 04.15 pm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-footer">
+      <i class="fa-solid fa-house active"></i>
+      <i class="fa-regular fa-calendar i" id="calenderId"></i>
+      <i class="fa-solid fa-plus i" id="clickButton"></i>
+      <i class="fa-solid fa-file-circle-check i"></i>
+      <i class="fa-regular fa-user i"></i>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
